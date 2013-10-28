@@ -14,13 +14,11 @@
 ActiveRecord::Schema.define(version: 20131028003630) do
 
   create_table "apps", force: true do |t|
-    t.string   "name",       limit: 64
-    t.string   "developer",  limit: 64
-    t.string   "img_url"
-    t.string   "detail_url"
-    t.string   "bundle_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name",       limit: 64
+    t.string "developer",  limit: 64
+    t.string "img_url"
+    t.string "detail_url"
+    t.string "bundle_id"
   end
 
 end

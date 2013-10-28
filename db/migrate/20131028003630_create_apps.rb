@@ -6,8 +6,6 @@ class CreateApps < ActiveRecord::Migration
       t.string :img_url
       t.string :detail_url
       t.string :bundle_id
-
-      t.timestamps
     end
   end
 end
