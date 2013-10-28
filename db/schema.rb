@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20131028135837) do
 
   create_table "rankings", force: true do |t|
     t.integer  "position"
+    t.integer  "app_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
