@@ -1,6 +1,10 @@
 class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
 
+  def fetch
+    
+  end
+
   # GET /apps
   # GET /apps.json
   def index

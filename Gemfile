@@ -47,3 +47,5 @@ end
 group :development do
   gem 'guard-livereload', require: false
 end
+
+gem 'nokogiri'
