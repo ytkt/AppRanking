@@ -4,7 +4,7 @@ class App < ActiveRecord::Base
 
   has_many :rankings
 
-  URL = "https://play.google.com/store/apps/category/COMMUNICATION/collection/topselling_free"
+  URL = "https://play.google.com/store/apps/category/COMMUNICATION/collection/topselling_free?hl=jp"
 
   def self.update_ranking
     res = open(App::URL, "r", {:ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE})
