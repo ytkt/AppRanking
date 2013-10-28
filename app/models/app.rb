@@ -5,9 +5,10 @@ class App < ActiveRecord::Base
   has_many :rankings
 
   URL = "https://play.google.com/store/apps/category/COMMUNICATION/collection/topselling_free?hl=jp"
+  PROXY = "http://133.242.137.148:80"
 
   def self.update_ranking
-    res = open(App::URL, "r", {:ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE})
+    res = open(URL, "r", {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, proxy: PROXY})
     doc = Nokogiri(res, nil, 'utf-8')
 
     doc.css('.card.apps.small').each_with_index do |data, index|
