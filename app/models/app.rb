@@ -1,5 +1,7 @@
 class App < ActiveRecord::Base
 
+  has_many :rankings
+
   def self.find_by_bundle_id(bundle_id)
     app = where(bundle_id: bundle_id).first
 
