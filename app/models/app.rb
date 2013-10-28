@@ -15,6 +15,8 @@ class App < ActiveRecord::Base
 
       app = find_by_bundle_id(bundle_id)
       app.set_info(data) if app.name.nil?
+
+      app.rankings.create(position: index+1)
     end
   end
 
