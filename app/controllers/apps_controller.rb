@@ -10,6 +10,26 @@ class AppsController < ApplicationController
   # GET /apps/1
   # GET /apps/1.json
   def show
+#    @categories = ("1".."7").to_a
+#    @data = [5, 6, 3, 1, 2, 4, 7]
+    @rankings = @app.ranking_last(7)
+
+    @data = @rankings.collect { |r| r.position }.reverse
+    @categories = @rankings.collect { |r| r.created_at.strftime('%m/%d') }.reverse
+
+    @h = LazyHighCharts::HighChart.new("graph") do |f|
+      f.chart(:type => "line")
+      f.title(:text => "Week Ranking")
+      f.xAxis(:categories => @categories)
+      f.yAxis(:max => @data.max+1,
+              :min => 0,
+              :reversed => true,
+              :minTickInterval => 1,
+              :allowDecimals => false,
+              :title => {:text => "rank" })
+      f.series(:name => "rank",
+               :data => @data)
+    end
   end
 
   # GET /apps/new

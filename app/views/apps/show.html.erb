@@ -1,24 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @app.name %>
-</p>
+<div>
+  <div class="col-md-4 .text-center">
+    <h3><%= @app.name %></h3>
+    <p class="text-muted"><%= @app.developer %></p>
+    <p><%= image_tag @app.img_url + "=w170" %></p>
+  </div>
+  <div class="col-md-8">
+    <%= high_chart("ranking", @h) %>
+  </div>
+</div>
 
-<p>
-  <strong>Developer:</strong>
-  <%= @app.developer %>
-</p>
-
-<p>
-  <strong>Img url:</strong>
-  <%= @app.img_url %>
-</p>
-
-<p>
-  <strong>Detail url:</strong>
-  <%= @app.detail_url %>
-</p>
+<div>
+</div>
 
 <%= link_to 'Edit', edit_app_path(@app) %> |
 <%= link_to 'Back', apps_path %>
