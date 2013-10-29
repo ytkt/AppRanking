@@ -6,6 +6,7 @@ class App < ActiveRecord::Base
 
   URL = "https://play.google.com/store/apps/category/COMMUNICATION/collection/topselling_free?hl=jp"
   PROXY = "http://133.242.137.148:80"
+  PLAY_URL = "https://play.google.com"
 
   def self.update_ranking
     res = open(URL, "r", {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, proxy: PROXY})
@@ -40,5 +41,9 @@ class App < ActiveRecord::Base
     self.detail_url = data.css('.card-click-target').first['href']
 
     save
+  end
+
+  def play_url
+    return PLAY_URL + detail_url
   end
 end
