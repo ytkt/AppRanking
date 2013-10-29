@@ -27,6 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
+    bootstrap-sass (3.0.0.0.rc2)
+      sass (~> 3.2)
     builder (3.1.4)
     celluloid (0.15.1)
       timers (~> 1.1.0)
@@ -147,6 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.0.0.0.rc)
   coffee-rails (~> 4.0.0)
   guard-livereload
   jbuilder (~> 1.2)
