@@ -37,7 +37,7 @@ class App < ActiveRecord::Base
   def set_info(data)
     self.name       = data.css('.details').css('.title').first['title']
     self.developer  = data.css('.subtitle').first['title']
-    self.img_url    = data.css('.cover-image').first['src']
+    self.img_url    = data.css('.cover-image').first['src'].sub(/=w\d*$/, '')
     self.detail_url = data.css('.card-click-target').first['href']
 
     save
