@@ -1,0 +1,22 @@
+<h1>Rankings</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Developer</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rankings.each_with_index do |rank, i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= image_tag rank.app.img_url + "=w30" %><%= link_to rank.app.name, rank.app %></td>
+        <td><%= rank.app.developer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
