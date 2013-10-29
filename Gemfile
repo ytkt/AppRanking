@@ -57,3 +57,5 @@ group :development do
 end
 
 gem 'nokogiri'
+
+gem 'lazy_high_charts'
