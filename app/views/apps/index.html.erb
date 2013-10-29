@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>No.</th>
+      <th></th>
       <th>Name</th>
       <th>Developer</th>
     </tr>
@@ -12,14 +13,11 @@
   <tbody>
     <% @apps.each_with_index do |app, i| %>
       <tr>
-        <td><%= i+1 %></td>
-        <td><%= image_tag app.img_url + "=w30" %><%= link_to app.name, app %></td>
+        <td><p class="text-right"><%= i+1 %></p></td>
+        <td><%= image_tag app.img_url + "=w30" %>
+        <td><%= link_to app.name, app %></td>
         <td><%= app.developer %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New App', new_app_path %>
