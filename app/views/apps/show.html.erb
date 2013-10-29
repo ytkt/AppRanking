@@ -1,18 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <div>
-  <div class="col-md-4 .text-center">
-    <h3><%= @app.name %></h3>
-    <p class="text-muted"><%= @app.developer %></p>
-    <p><%= image_tag @app.img_url + "=w170" %></p>
+  <div>
+    <div class="col-md-10">
+      <h3><%= @app.name %></h3>
+    </div>
+    <div class="col-md-2 text-right">
+      <% if @prev %>
+      <span><%= link_to '< prev', @prev %></span>
+      <% end %>
+      <% if @prev && @next %>
+      &nbsp;|&nbsp;
+      <%end%>
+      <% if @next %>
+      <span><%= link_to 'next >', @next %></span>
+      <% end %>
+    </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-3 text-center" style="padding-top:60px;">
+    <p><%= link_to image_tag(@app.img_url + "=w170"), @app.play_url %></p>
+    <p class="text-muted"><%= @app.developer %></p>
+  </div>
+  <div class="col-md-9">
     <%= high_chart("ranking", @h) %>
   </div>
 </div>
-
-<div>
-</div>
-
-<%= link_to 'Edit', edit_app_path(@app) %> |
-<%= link_to 'Back', apps_path %>

@@ -14,6 +14,16 @@ class AppsController < ApplicationController
 #    @data = [5, 6, 3, 1, 2, 4, 7]
     @rankings = @app.ranking_last(7)
 
+    @prev = @next = nil
+    begin
+      @prev = App.find(@app.id - 1)
+    rescue
+    end
+    begin
+      @next = App.find(@app.id + 1)
+    rescue
+    end
+
     @data = @rankings.collect { |r| r.position }.reverse
     @categories = @rankings.collect { |r| r.created_at.strftime('%m/%d') }.reverse
 
