@@ -1,28 +1,20 @@
 <h1>Listing apps</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>No.</th>
       <th>Name</th>
       <th>Developer</th>
-      <th>Img url</th>
-      <th>Detail url</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @apps.each do |app| %>
+    <% @apps.each_with_index do |app, i| %>
       <tr>
-        <td><%= app.name %></td>
+        <td><%= i+1 %></td>
+        <td><%= image_tag app.img_url + "=w30" %><%= link_to app.name, app %></td>
         <td><%= app.developer %></td>
-        <td><%= app.img_url %></td>
-        <td><%= app.detail_url %></td>
-        <td><%= link_to 'Show', app %></td>
-        <td><%= link_to 'Edit', edit_app_path(app) %></td>
-        <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
