@@ -46,4 +46,8 @@ class App < ActiveRecord::Base
   def play_url
     return PLAY_URL + detail_url
   end
+
+  def ranking_last(num)
+    return rankings.limit(num).order(created_at: :desc)
+  end
 end
