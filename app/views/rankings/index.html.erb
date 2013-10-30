@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>No.</th>
+      <th></th>
       <th>Name</th>
       <th>Developer</th>
     </tr>
@@ -12,8 +13,9 @@
   <tbody>
     <% @rankings.each_with_index do |rank, i| %>
       <tr>
-        <td><%= i+1 %></td>
-        <td><%= image_tag rank.app.img_url + "=w30" %><%= link_to rank.app.name, rank.app %></td>
+        <td><p class="text-right"><%= i+1 %></p></td>
+        <td><p class="text-right"><%= image_tag rank.app.img_url + "=w30" %></p></td>
+        <td><%= link_to rank.app.name, rank.app %></td>
         <td><%= rank.app.developer %></td>
       </tr>
     <% end %>
