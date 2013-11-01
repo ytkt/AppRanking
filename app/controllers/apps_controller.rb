@@ -31,7 +31,7 @@ class AppsController < ApplicationController
       f.chart(:type => "line")
       f.title(:text => "Week Ranking")
       f.xAxis(:categories => @categories)
-      f.yAxis(:max => @data.max+1,
+      f.yAxis(:max => @data.compact.max + 1,
               :min => 0,
               :reversed => true,
               :minTickInterval => 1,
