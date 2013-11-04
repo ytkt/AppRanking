@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028135837) do
+ActiveRecord::Schema.define(version: 20131104082634) do
 
   create_table "apps", force: true do |t|
     t.string "name",       limit: 64
@@ -21,9 +21,14 @@ ActiveRecord::Schema.define(version: 20131028135837) do
     t.string "bundle_id"
   end
 
+  create_table "fetch_dates", force: true do |t|
+    t.datetime "fetched_at"
+  end
+
   create_table "rankings", force: true do |t|
     t.integer  "position"
     t.integer  "app_id"
+    t.integer  "fetch_date_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
