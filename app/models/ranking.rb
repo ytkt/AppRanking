@@ -19,7 +19,7 @@ class Ranking < ActiveRecord::Base
     begin
       res = open(URL, "r", {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, proxy: PROXY})
     rescue
-      logger.debug("data fetch failed")
+      puts "data fetch failed"
       return
     end
 
