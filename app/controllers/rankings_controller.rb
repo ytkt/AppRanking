@@ -3,6 +3,7 @@ class RankingsController < ApplicationController
   def index
     @last_fetched = FetchDate.last_days(7)
     @rankings = @last_fetched.first.rankings
+    @apps = App.where("id in (?)", @rankings.collect { |a| a.app_id }).pluck(:id, :bundle_id)
 
     @categories = @last_fetched.collect { |fd|
       fd.fetched_at.strftime('%m/%d')
@@ -12,7 +13,7 @@ class RankingsController < ApplicationController
     @data = {}
     @last_fetched.each_with_index do |fd, i|
       fd.rankings.each do |r|
-        bundle_id = r.app.bundle_id
+        bundle_id = @apps.assoc(r.app_id).last
 
         unless @data.has_key?(bundle_id)
           @data[bundle_id] = Array.new(i, nil)
@@ -35,7 +36,7 @@ class RankingsController < ApplicationController
                verticalAlign: 'top')
       f.title(:text => "Week Ranking")
       f.xAxis(:categories => @categories)
-      f.yAxis(:max => 20,
+      f.yAxis(:max => 16,
               :min => 0,
               :reversed => true,
               :minTickInterval => 1,
